@@ -1,5 +1,20 @@
 (function (window) {
     'use strict';
+    function resetForm() {
+        let form = $('.js-review-add');
+        let fields = form.find('input, select, textarea');
+        $.each(fields, (key, field) => {
+            if (field.type === 'text') {
+                field.value = ''
+            }
+            if (field.type === 'hidden') {
+                field.value = ''
+            }
+            if (field.name === 'message') {
+                field.value = ''
+            }
+        });
+    }
     $(document).on('submit', '.js-review-add', function (e) {
         e.preventDefault();
         let $listContainer = $('.js-list-body'),
@@ -30,6 +45,7 @@
                         });
                         $listContainer.html(html);
                         $errorContainer.text('Запись успешно добавлена');
+                        resetForm();
                     }
                 }
             }
