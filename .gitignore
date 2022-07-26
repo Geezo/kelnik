@@ -1,0 +1,7 @@
+/.idea
+/core/vendor/
+/*.log
+/*.sql
+/*.txt
+/*.xml
+/*.dt
